@@ -6,9 +6,10 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  isExpanded: boolean = false;
+  isExpanded: boolean = true;
 
-  @ViewChild('sidebar') sidebarEl!: ElementRef
+  @ViewChild('sidebar') sidebarEl!: ElementRef;
+  @ViewChild('expanderIcon') expanderIconEl!: ElementRef;
 
   constructor(private renderer: Renderer2) { }
 
@@ -16,12 +17,14 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleSidebarExpansion(){
-    // if(!this.isExpanded){
-    //   this.renderer.setStyle(this.sidebarEl.nativeElement, 'width', '20rem')
-    // }else{
-    //   this.renderer.setStyle(this.sidebarEl.nativeElement, 'width', '6rem')
-    // }
-    // this.isExpanded = !this.isExpanded;
+    if(!this.isExpanded){
+      this.renderer.setStyle(this.sidebarEl.nativeElement, 'width', '20rem');
+      this.renderer.setStyle(this.expanderIconEl.nativeElement, 'transform', 'rotate(-180deg)');
+    }else{
+      this.renderer.setStyle(this.sidebarEl.nativeElement, 'width', '8rem');
+      this.renderer.setStyle(this.expanderIconEl.nativeElement, 'transform', 'rotate(0deg)');
+    }
+    this.isExpanded = !this.isExpanded;
   }
 
 }

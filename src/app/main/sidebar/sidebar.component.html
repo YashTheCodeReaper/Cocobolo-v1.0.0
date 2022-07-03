@@ -6,6 +6,7 @@
       viewBox="0 0 24 24"
       width="512"
       height="512"
+      #expanderIcon
     >
       <path
         d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"
@@ -14,14 +15,14 @@
   </div>
   <h3>
     <span>C</span>
-    <span>OCO</span>
+    <span [ngClass]="{'logo-minified': !isExpanded}">OCO</span>
     <span>B</span>
-    <span>OLO</span>
+    <span [ngClass]="{'logo-minified': !isExpanded}">OLO</span>
   </h3>
   <nav>
     <p>Menu</p>
     <ul>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <div class="active-link"></div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@
         </svg>
         <p>Home</p>
       </li>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Layer_1"
@@ -67,7 +68,7 @@
         </svg>
         <p>Clock</p>
       </li>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Filled"
@@ -84,7 +85,7 @@
         </svg>
         <p>Projects</p>
       </li>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Layer_1"
@@ -99,7 +100,7 @@
         </svg>
         <p>Tasks</p>
       </li>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Layer_1"
@@ -114,7 +115,7 @@
         </svg>
         <p>Chat</p>
       </li>
-      <li>
+      <li [ngClass]="{'li-minified': !isExpanded}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -138,7 +139,7 @@
       </li>
     </ul>
   </nav>
-  <div class="chat-notification">
+  <div [ngClass]="{'cn-minified': !isExpanded}" class="chat-notification">
     <p>Chat</p>
     <div class="cn-container">
       <div class="cn-bar">
@@ -169,6 +170,13 @@
           <p>Kaadunu onnu irundha, adhula singam puli..</p>
         </div>
       </div>
+      <div class="cn-bar">
+        <img src="../../../assets/sample_avatar5.webp">
+        <div class="cn-detail">
+          <h5 class="cn-sender">Vikram</h5>
+          <p>Kaadunu onnu irundha, adhula singam puli..</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="me">
@@ -179,7 +187,7 @@
         <p>Assistant Manager</p>
       </div>
     </div>
-    <div class="me-status">
+    <div [ngStyle]="{'visibility': isExpanded ? 'visible' : 'hidden'}" class="me-status">
       <h5>Status:</h5>
       <div class="status"></div>
       <p>Available</p>
